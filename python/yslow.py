@@ -1,7 +1,6 @@
 import os
 import sys
 import getopt
-sys.path.append('/core/Linux/APPZ/renderFam/tractor/pixar/Tractor-2.2/lib/python2.7/site-packages')
 import tractor.api.query as tq
 
 
@@ -48,13 +47,6 @@ def check():
     USING=$(echo $USED | cut -d'%' -f 1)
     USING_ROUNDUP=$(echo $USED | awk '{printf "%.0f", $1+$2}')
 
-    echo "    __    __   _______   _______    "
-    echo "   |  \  /  | |   _   | |_____  |   "
-    echo "   |   \/   | |  |_|  |  _____| |   "
-    echo "   |        | |   _   | |_____  |   "
-    echo "   |  |\/|  | |  |_|  |  _____| |   "
-    echo "   |__|  |__| |_______| |_______|   "
-    echo "                                    "
     echo "\33[93m\033[1m  PC RUNNING: $RUNNING\33[0m"
     echo " "
     echo "\33[92m  CPU\33[0m $USED% used"
@@ -131,7 +123,6 @@ def _kill(proc_real, title):
 
 def nuke_kill(proc_real, title):
     if proc_real != "":
-        # os.system("kill -9 $(ps ax|grep {p} |grep -v grep |grep {t}|grep -Eo ^[0-9]+)".format(p=proc_real, t=title))
         os.system("kill -9 $(ps ax|grep {p} |grep -v grep |grep {t}|awk '{{ print $1 }}')".format(p=proc_real, t=title))
         print "{c}Kill '{p}' process ... {g}Done{e}".format(c=bcolors.RED, p=title, g=bcolors.GREEN, e=bcolors.ENDC)
     else:
@@ -272,8 +263,4 @@ def main(argv):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
-
-#yslow -k 51814,51915,12345
-#yslow-k t3,51814
 
