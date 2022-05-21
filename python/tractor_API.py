@@ -1,10 +1,9 @@
 import os
 import sys
 import time
-sys.path.append('/core/Linux/APPZ/renderFam/tractor/pixar/Tractor-2.2/lib/python2.7/site-packages')
 import tractor.api.query as tq
 
-tq.setEngineClientParam(hostname='192.168.10.11', port=80, user="root", debug=False)
+tq.setEngineClientParam(hostname='123.456.78.09', port=00, user="user", debug=False)
 
 def nimby_ON():
 
